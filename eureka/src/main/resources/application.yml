@@ -13,3 +13,10 @@ eureka:
 spring:
   application:
     name: eurka
+
+logging:
+  config: classpath:logback.xml
+  smallweb:
+    file: D:/logs/smallweb/eureka
+    level: ERROR
+    moduleName: smallweb.eureka

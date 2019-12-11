@@ -5,7 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
-<p th:text="${#dates.createNow()}">123</p>
+<div th:object="${userInfo}">
+    <p th:text="*{username}"></p>
+    <p th:text="*{pwd}"></p>
+</div>
+<p th:text="${#dates.createNow()}"></p>
+<form action="#" th:action="@{/admin/add}" th:object="${userInfo}" method="post">
+    <div><span>用户名</span><input type="text" th:field="*{username}" />  <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span></div>
+    <div><span>密码</span><input type="text" th:field="*{pwd}" />  <span th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}"></span></div>
+    <input type="submit" />
+</form>
 </body>
 </html>

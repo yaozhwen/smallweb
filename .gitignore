@@ -32,3 +32,5 @@ buildNumber.properties
 ###SpringBoot###
 mvnw
 mvnw.cmd
+*.log
+*.errlog
