@@ -6,7 +6,7 @@
 		<groupId>com.yao</groupId>
 		<artifactId>smallweb</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>com.yao.facade</groupId>
@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>facade</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>jar</packaging>
 
 	<properties>
 	</properties>
@@ -32,4 +33,6 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 	</dependencies>
+
+
 </project>
