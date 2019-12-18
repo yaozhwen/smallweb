@@ -7,4 +7,6 @@ import com.yao.core.entity.Admin;
  */
 public interface AdminDao {
     Admin get(long id);
+    Admin findByUsername(String username);
+    int update(Admin admin);
 }

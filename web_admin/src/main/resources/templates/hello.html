@@ -13,7 +13,15 @@
 <form action="#" th:action="@{/admin/add}" th:object="${userInfo}" method="post">
     <div><span>用户名</span><input type="text" th:field="*{username}" />  <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span></div>
     <div><span>密码</span><input type="text" th:field="*{pwd}" />  <span th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}"></span></div>
+    <input type="hidden" name="loginType" id="loginType" value="admin" />
+    <input type="hidden" name="captcha" id="captcha" value="adminCaptcha" />
     <input type="submit" />
 </form>
+
+<form action="#" th:action="@{/admin/search}" method="post">
+<div><span>用户名</span><input type="text" name="username1" /> </div>
+<input type="submit" />
+</form>
+
 </body>
 </html>

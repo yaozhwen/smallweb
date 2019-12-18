@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by yaozwsq on 2019/12/4.
  */
-@Transactional(readOnly = true)
+@Transactional
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
@@ -20,5 +20,15 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Admin get(Long id) {
         return adminDao.get(id);
+    }
+
+    @Override
+    public Admin findByUsername(String username) {
+        return adminDao.findByUsername(username);
+    }
+
+    @Override
+    public int update(Admin admin) {
+        return adminDao.update(admin);
     }
 }

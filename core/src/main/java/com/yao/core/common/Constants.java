@@ -7,6 +7,8 @@ public class Constants {
 
     public static final String[] DATE_PATTERNS = new String[] { "yyyy", "yyyy-MM", "yyyyMM", "yyyy/MM", "yyyy-MM-dd", "yyyyMMdd", "yyyy/MM/dd", "yyyy-MM-dd HH:mm:ss", "yyyyMMddHHmmss", "yyyy/MM/dd HH:mm:ss" };
 
+    public static final String CAPTCHA = "captcha";
+    public static final String LOGINTYPE = "loginType";
 
     /*admin使用*/
     public static final String LOGIN_TYPE_ADMIN = "admin";

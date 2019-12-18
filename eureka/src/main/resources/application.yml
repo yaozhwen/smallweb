@@ -13,6 +13,8 @@ eureka:
 spring:
   application:
     name: eurka
+  main:
+    allow-bean-definition-overriding: true
 
 logging:
   config: classpath:logback.xml

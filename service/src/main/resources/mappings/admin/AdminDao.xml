@@ -7,4 +7,32 @@
 		FROM ADMIN a
 		WHERE a.ID = #{id} AND a.DEL_FLAG = '0'
     </select>
+
+    <select id="findByUsername" resultType="Admin">
+        SELECT
+        a.*
+        FROM ADMIN a
+        WHERE a.USERNAME = #{username} AND a.DEL_FLAG = '0'
+    </select>
+
+    <update id="update" parameterType="Admin">
+        UPDATE ADMIN SET
+        MODIFY_DATE = #{modifyDate},
+        MODIFY_USER = #{modifyUser},
+        ROLE_ID = #{roleId},
+        NAME = #{name},
+        PHONE = #{phone},
+        EMAIL = #{email},
+        STATUS = #{status},
+        USERNAME = #{username},
+        PWD = #{pwd},
+        LOGIN_DATE = #{loginDate},
+        LOCKED_OR_NO = #{lockedOrNo},
+        LOCKED_DATE = #{lockedDate},
+        LOGIN_FAILURE_COUNT = #{loginFailureCount},
+        PASS_ID = #{passId},
+        FIRST_LOGIN = #{firstLogin},
+        EDIT_LOGIN_PWD_TIME = #{editLoginPwdTime}
+        WHERE ID = #{id}
+    </update>
 </mapper>

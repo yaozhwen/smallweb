@@ -1,10 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>hello</title>
+    <title>index</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+
+<div th:switch="${flag}">
+    <div th:case="true">
+        <div th:object="${Admin}">
+        <p th:text="*{username}"></p>
+        <p th:text="*{pwd}"></p>
+        </div>
+    </div>
+    <div th:case="false">
+        <p>无数据</p>
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -5,10 +5,7 @@ import com.yao.core.common.BaseLog;
 import com.yao.core.entity.Admin;
 import com.yao.core.eureka.EurekaResponse;
 import com.yao.service.service.admin.AdminService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -29,6 +26,31 @@ public class AdminEureka extends BaseLog{
         eurekaResponse = new EurekaResponse(EurekaResponse.Status.success, "88", "success");
         String value = new Gson().toJson(admin);
         eurekaResponse.setValue(value);
+        return eurekaResponse;
+    }
+
+    @PostMapping("/findByUsername")
+    public EurekaResponse findByUsername(@RequestParam(value = "username", required = false) String username) {
+        EurekaResponse eurekaResponse = null;
+        Admin admin = adminService.findByUsername(username);
+
+        eurekaResponse = new EurekaResponse(EurekaResponse.Status.success, "88", "success");
+        String value = new Gson().toJson(admin);
+        eurekaResponse.setValue(value);
+        return eurekaResponse;
+    }
+
+    @PostMapping("/update")
+    public EurekaResponse update(@RequestBody Admin admin) {
+        int i = adminService.update(admin);
+        EurekaResponse eurekaResponse;
+        if (i == 0) {
+            eurekaResponse = new EurekaResponse(EurekaResponse.Status.error, "00", "error");
+        } else {
+            eurekaResponse = new EurekaResponse(EurekaResponse.Status.success, "88", "success");
+            String value = new Gson().toJson(admin);
+            eurekaResponse.setValue(value);
+        }
         return eurekaResponse;
     }
 }

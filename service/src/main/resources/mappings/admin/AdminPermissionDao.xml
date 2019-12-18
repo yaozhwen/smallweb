@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yao.service.dao.admin.AdminPermissionDao">
+    <select id="findByRoleId" resultType="AdminPermissionVo">
+        SELECT
+		c.*
+		FROM (SELECT
+		a.*,b.RID,level-1 AS "GRADE"
+		FROM ADMIN_PERMISSION a
+		LEFT JOIN ADMIN_ROLE_PERMISSION b on b.RID=#{rid} and b.PID=a.ID
+		START WITH a.ID = 1
+		CONNECT BY a.PARENT_ID = PRIOR a.ID
+		ORDER SIBLINGS BY a.ORDERS) c where c.RID is not null
+    </select>
+</mapper>
