@@ -17,7 +17,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<shiro_version>1.2.3</shiro_version>
+		<shiro_version>1.10.0</shiro_version>
 		<!--<spring_boot_version>2.2.1.RELEASE</spring_boot_version>-->
 	</properties>
 
